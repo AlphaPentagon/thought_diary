@@ -1,5 +1,6 @@
 import express from "express";
 import thoughtsRouter from "./routes/thoughts.js";
+import mongoose from "mongoose";
 
 const PORT = process.env.PORT;
 
@@ -17,7 +18,15 @@ app.use((req, res, next) => {
 // routes
 app.use("/api/thoughts", thoughtsRouter);
 
-// listen for requests
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
-});
+// connect to Mongo DB
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    // listen for requests
+    app.listen(PORT, () => {
+      console.log(`Connected to DB & listening on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
