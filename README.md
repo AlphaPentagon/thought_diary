@@ -16,3 +16,12 @@ I plan to use the Mern stack for this project. I have not used MongoDB before so
 - Created DB on mongoDB
 - Used mongoose to create schema and model
 - Added logic to POST request and tested using Postman
+
+### 07/09/22
+
+- Added logic for all CRUD routes, tested using Postman
+- Created frontend react app
+- Installed Bootstrap and SASS
+- Created pages and routes
+- Created Navbar component
+- Implemented test fetching of data and rendering on screen
