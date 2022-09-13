@@ -1,23 +1,23 @@
-const NumberForm = ({
-  formStep,
-  questionText,
-  nextStep,
-  previousStep,
-  numOfSteps,
-  handleChange,
-  onChange,
-  input,
-}) => {
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+
+const NumberForm = ({ questionText, onChange, input }) => {
   return (
-    <>
-      <h3>{questionText}</h3>
+    <Form.Group controlId="thoughtForm.ControlRangeInput" className="mb-3">
+      <Form.Label as="h3">{questionText}</Form.Label>
       <p>{`${input}%`}</p>
-      <div>
+      <Container className="d-flex flex-row gap-3 mb-3">
         <span>0%</span>
-        <input type="range" onChange={onChange} value={input} />
+        <Form.Control
+          type="range"
+          className="form-range"
+          onChange={onChange}
+          value={input}
+          style={{ border: "none" }}
+        />
         <span>100%</span>
-      </div>
-    </>
+      </Container>
+    </Form.Group>
   );
 };
 

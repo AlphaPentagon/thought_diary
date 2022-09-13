@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/row";
+import ThoughtCard from "../components/ThoughtCard/ThoughtCard.js";
 
 const Diary = () => {
   const [thoughts, setThoughts] = useState(null);
@@ -25,47 +28,32 @@ const Diary = () => {
   };
 
   return (
-    <div className="Diary text-center">
-      <h2 className="text-primary">Your Thoughts</h2>
-
-      {thoughts ? (
-        thoughts.length !== 0 ? (
-          thoughts.map((thought, index) => {
-            const date = thought.createdAt.split("").slice(0, 10).join("");
-            const time = thought.createdAt.split("").slice(11, 16);
-            return (
-              <div className="text-center" key={thought._id}>
-                <p>Date: {date}</p>
-                <p>Time: {time}</p>
-                <p>Situation: {thought.situation}</p>
-                <p>Thought: {thought.thought}</p>
-                <p>Thought Belief: {thought.thought_rating}%</p>
-                <p>Emotions: {thought.emotions}</p>
-                <p>Behaviours: {thought.behaviours}</p>
-                <p>Evidence for: {thought.evidence_for}</p>
-                <p>Evidence against: {thought.evidence_against}</p>
-                <p>Balanced thought: {thought.balanced_thought}</p>
-                <p>Balanced Thought Belief: {thought.balanced_rating}%</p>
-                <button
-                  onClick={() => {
-                    handleDelete(thought._id, index);
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-            );
-          })
+    <Container className="d-grid">
+      <h2 className="text-primary text-center mb-5">Your Thought Diary</h2>
+      <Row xs="1" md="2" lg="3" className="justify-content-center">
+        {thoughts ? (
+          thoughts.length !== 0 ? (
+            thoughts.map((thought, index) => {
+              return (
+                <ThoughtCard
+                  key={thought._id}
+                  thought={thought}
+                  index={index}
+                  handleDelete={handleDelete}
+                />
+              );
+            })
+          ) : (
+            <p>
+              {" "}
+              No thoughts to display. <a href="/newThought">Get started</a>
+            </p>
+          )
         ) : (
-          <p>
-            {" "}
-            No thoughts to display. <a href="/newThought">Get started</a>
-          </p>
-        )
-      ) : (
-        <p className="text-center">Loading...</p>
-      )}
-    </div>
+          <p className="text-center">Loading...</p>
+        )}
+      </Row>
+    </Container>
   );
 };
 

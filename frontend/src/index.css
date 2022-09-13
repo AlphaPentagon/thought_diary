@@ -1,1 +1,35 @@
+#form-button-next:focus {
+  --bs-btn-active-color: #49a078;
+  --bs-btn-active-bg: #fff;
+  --bs-btn-focus-shadow-rgb: #fff;
+  --bs-btn-hover-bg: #fff;
+  color: #49a078;
+}
 
+#form-button-next:hover {
+  --bs-btn-hover-bg: #49a078;
+  color: #000;
+}
+
+#form-button-previous:focus {
+  --bs-btn-active-bg: #f8f9fa;
+  --bs-btn-hover-bg: #f8f9fa;
+  --bs-btn-border-color: #f8f9fa;
+  --bs-btn-hover-border-color: #f8f9fa;
+}
+
+#form-button-previous:hover {
+  --bs-btn-hover-bg: #d3d4d5;
+}
+
+#form-button-submit:focus {
+  --bs-btn-active-bg: #198754;
+  --bs-btn-hover-bg: #198754;
+  --bs-btn-border-color: #198754;
+  --bs-btn-hover-border-color: #198754;
+}
+
+#form-button-submit:hover {
+  --bs-btn-hover-bg: #157347;
+  --bs-btn-hover-border-color: #157347;
+}

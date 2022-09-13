@@ -2,13 +2,16 @@ import { useState, useEffect } from "react";
 import TextForm from "./TextForm/TextForm";
 import NumberForm from "./NumberForm/NumberForm";
 import ThoughtsFormData from "../../libs/ThoughtsFormData";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 const ThoughtForm = () => {
   const [formStep, setFormStep] = useState(1);
   const [formData, setFormData] = useState({
     situation: "",
     thought: "",
-    thought_rating: 50,
+    thought_rating: 0,
     emotions: "",
     behaviours: "",
     evidence_for: "",
@@ -67,8 +70,8 @@ const ThoughtForm = () => {
   return (
     <>
       {!formCompleted ? (
-        <div>
-          <form onSubmit={handleSubmit}>
+        <Container fluid="md">
+          <Form onSubmit={handleSubmit}>
             <p>{`Step ${formStep} of ${ThoughtsFormData.length}`}</p>
             {ThoughtsFormData[formStep - 1].type === "text" ? (
               <TextForm
@@ -86,34 +89,47 @@ const ThoughtForm = () => {
               />
             )}
 
-            <div>
+            <div aria-label="Button group for navigating new thought form">
               {/* Hide the previous button if rendering the first form step */}
               {formStep !== 1 && (
-                <button
+                <Button
+                  className="me-1 shadow-none"
+                  id="form-button-previous"
+                  variant="light"
                   onClick={(e) => {
                     handleChange();
                     previousStep(e);
                   }}
                 >
                   Previous
-                </button>
+                </Button>
               )}
               {/* Hide the next button if rendering the last form step */}
               {ThoughtsFormData.length !== formStep ? (
-                <button
+                <Button
+                  className="shadow-none"
+                  id="form-button-next"
+                  variant="outline-primary"
                   onClick={(e) => {
                     handleChange();
                     nextStep(e);
                   }}
                 >
                   Next
-                </button>
+                </Button>
               ) : (
-                <button type="submit">Submit</button>
+                <Button
+                  variant="success"
+                  type="submit"
+                  id="form-button-submit"
+                  className="shadow-none"
+                >
+                  Submit
+                </Button>
               )}
             </div>
-          </form>
-        </div>
+          </Form>
+        </Container>
       ) : (
         <div>
           <p>Thought has been logged!</p>

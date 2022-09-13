@@ -1,13 +1,23 @@
+import Form from "react-bootstrap/Form";
+
 const TextForm = ({ questionText, placeholderText, onChange, input }) => {
   return (
-    <>
-      <h3>{questionText}</h3>
-      <textarea
+    <Form.Group
+      controlId="thoughtForm.ControlTextarea"
+      d-fluid="lg"
+      className="mb-3 mx-auto"
+    >
+      <Form.Label as="h3" className="mb-3">
+        {questionText}
+      </Form.Label>
+      <Form.Control
+        style={{ height: "16rem" }}
+        as="textarea"
         onChange={onChange}
         value={input}
         placeholder={placeholderText}
       />
-    </>
+    </Form.Group>
   );
 };
 
