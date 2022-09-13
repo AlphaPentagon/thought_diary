@@ -1,0 +1,15 @@
+// create component tree
+    // ThoughtForm ✅
+        // TextForm ✅
+        // NumberForm ✅
+
+// Add state for thought form
+    // formStep ✅
+    // formData ✅
+
+// Add functions for thoughtForm
+    // handleInputChange ✅
+    // NextStep ✅
+    // PreviousStep ✅
+    // SubmitForm ✅
+

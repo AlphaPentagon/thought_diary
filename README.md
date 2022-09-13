@@ -25,3 +25,12 @@ I plan to use the Mern stack for this project. I have not used MongoDB before so
 - Created pages and routes
 - Created Navbar component
 - Implemented test fetching of data and rendering on screen
+
+### 13/09/22
+
+- Created multi-step form components
+- Created state and functions for form behaviours
+- Created next and previous buttons for form. Ensured that these appear conditionally, and that form data is stored and prepopulated if moving from current step
+- Added post request and submit button so that form data can be posted to database
+- Added delete request and button so that thought can be deleted from db, change is reflected on page
+- Manually tested functionality using app and Postman
