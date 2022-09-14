@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
+import ThoughtModal from "../../components/Modal/Modal.js";
 
 const ThoughtCard = ({ thought, index, handleDelete }) => {
   const [isHovering, setIsHovering] = useState(false);
@@ -21,9 +22,9 @@ const ThoughtCard = ({ thought, index, handleDelete }) => {
       onMouseOut={handleMouseOut}
       style={{ cursor: "pointer" }}
     >
-      <Card className="text-center mb-3" style={{ height: "20rem" }}>
+      <Card className="text-center mb-3 " style={{ height: "20rem" }}>
         <Card.Header className="text-mute">{`${date} | ${time}`}</Card.Header>
-        <Card.Body className="d-flex flex-column justify-content-between">
+        <Card.Body className="d-flex flex-column justify-content-between opacity-75">
           <Card.Title className="mb-3">{thought.situation}</Card.Title>
 
           {!isHovering ? (
@@ -38,26 +39,16 @@ const ThoughtCard = ({ thought, index, handleDelete }) => {
             <div>
               <Card.Text
                 as="h5"
-                className="text-primary mb-4"
+                className="text-info mb-4"
               >{`"${thought.balanced_thought}"`}</Card.Text>
               <Card.Text as="h5">{thought.balanced_rating}%</Card.Text>
             </div>
           )}
-
-          {/* <p>Emotions: {thought.emotions}</p>
-          <p>Behaviours: {thought.behaviours}</p>
-          <p>Evidence for: {thought.evidence_for}</p>
-          <p>Evidence against: {thought.evidence_against}</p>
-          <p>Balanced thought: {thought.balanced_thought}</p>
-          <p>Balanced Thought Belief: {thought.balanced_rating}%</p> */}
-          <Button
-            variant="outline-danger"
-            onClick={() => {
-              handleDelete(thought._id, index);
-            }}
-          >
-            DELETE
-          </Button>
+          <ThoughtModal
+            thought={thought}
+            thoughtIndex={index}
+            handleDelete={handleDelete}
+          />
         </Card.Body>
       </Card>
     </div>

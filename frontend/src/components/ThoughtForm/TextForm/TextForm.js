@@ -11,6 +11,8 @@ const TextForm = ({ questionText, placeholderText, onChange, input }) => {
         {questionText}
       </Form.Label>
       <Form.Control
+        id="forms-bg-color"
+        className="opacity-75"
         style={{ height: "16rem" }}
         as="textarea"
         onChange={onChange}

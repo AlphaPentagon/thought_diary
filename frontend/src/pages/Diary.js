@@ -28,32 +28,34 @@ const Diary = () => {
   };
 
   return (
-    <Container className="d-grid">
-      <h2 className="text-primary text-center mb-5">Your Thought Diary</h2>
-      <Row xs="1" md="2" lg="3" className="justify-content-center">
-        {thoughts ? (
-          thoughts.length !== 0 ? (
-            thoughts.map((thought, index) => {
-              return (
-                <ThoughtCard
-                  key={thought._id}
-                  thought={thought}
-                  index={index}
-                  handleDelete={handleDelete}
-                />
-              );
-            })
+    <>
+      <Container className="d-grid">
+        <h2 className="text-primary text-center mb-5">Your Thought Diary</h2>
+        <Row xs="1" md="2" lg="3" className="justify-content-center">
+          {thoughts ? (
+            thoughts.length !== 0 ? (
+              thoughts.map((thought, index) => {
+                return (
+                  <ThoughtCard
+                    key={thought._id}
+                    thought={thought}
+                    index={index}
+                    handleDelete={handleDelete}
+                  />
+                );
+              })
+            ) : (
+              <p>
+                {" "}
+                No thoughts to display. <a href="/newThought">Get started</a>
+              </p>
+            )
           ) : (
-            <p>
-              {" "}
-              No thoughts to display. <a href="/newThought">Get started</a>
-            </p>
-          )
-        ) : (
-          <p className="text-center">Loading...</p>
-        )}
-      </Row>
-    </Container>
+            <p className="text-center">Loading...</p>
+          )}
+        </Row>
+      </Container>
+    </>
   );
 };
 

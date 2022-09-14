@@ -95,7 +95,7 @@ const ThoughtForm = () => {
                 <Button
                   className="me-1 shadow-none"
                   id="form-button-previous"
-                  variant="light"
+                  variant="outline-secondary"
                   onClick={(e) => {
                     handleChange();
                     previousStep(e);

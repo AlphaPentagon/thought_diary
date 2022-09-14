@@ -1,4 +1,9 @@
 $primary: #49a078;
+$info: #7ca6a7;
+$light: #eeeee9;
+$dark: #212e2b;
+$body-bg: $light;
+$body-color: $dark;
 
 // import bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";

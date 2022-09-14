@@ -13,3 +13,26 @@
     // PreviousStep ✅
     // SubmitForm ✅
 
+// modal for each thought ✅
+// option to update and delete - buttons ✅
+// color scheme
+// title and favicon ✅
+// logo ✅
+// front page explanation and resources ✅
+
+# stretch goals
+
+// deployment
+    // front end
+    // back end
+// log in / out functionality
+// log time and date
+// filter by date/time
+// add categories / tags / badges
+// filter by categories
+// display thought in a table
+// download thought as a table
+// show correlation between time and emotion, situation, etc
+// hints and tips box
+
+

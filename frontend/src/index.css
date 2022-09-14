@@ -33,3 +33,11 @@
   --bs-btn-hover-bg: #157347;
   --bs-btn-hover-border-color: #157347;
 }
+
+#forms-bg-color {
+  background-color: #fff;
+}
+.modal-bg-color,
+#modal-bg-color {
+  background-color: #eeeee9;
+}
