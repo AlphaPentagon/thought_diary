@@ -1,6 +1,7 @@
 import express from "express";
 import thoughtsRouter from "./routes/thoughts.js";
 import mongoose from "mongoose";
+import cors from "cors";
 
 const PORT = process.env.PORT;
 
@@ -9,11 +10,7 @@ const app = express();
 
 // middleware
 app.use(express.json());
-app.get("/cors", (req, res, next) => {
-  res.set("Access-Control-Allow-Origin", "https://thought-diary.netlify.app");
-  res.send({ msg: "This has CORS enabled" });
-  next();
-});
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log(req.path, req.method, req.body);
