@@ -1,8 +1,8 @@
 #form-button-next:focus {
   --bs-btn-active-color: #49a078;
-  --bs-btn-active-bg: #fff;
+  --bs-btn-active-bg: #eeeee9;
   --bs-btn-focus-shadow-rgb: #fff;
-  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-bg: #eeeee9;
   color: #49a078;
 }
 
@@ -12,14 +12,17 @@
 }
 
 #form-button-previous:focus {
-  --bs-btn-active-bg: #f8f9fa;
-  --bs-btn-hover-bg: #f8f9fa;
-  --bs-btn-border-color: #f8f9fa;
-  --bs-btn-hover-border-color: #f8f9fa;
+  --bs-btn-active-bg: transparent;
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-border-color: #6c757d;
+  --bs-btn-hover-border-color: #6c757d;
+  --bs-btn-color: #6c757d;
+  --bs-btn-hover-color: #6c757d;
 }
 
 #form-button-previous:hover {
   --bs-btn-hover-bg: #d3d4d5;
+  --bs-btn-hover-color: #fff;
 }
 
 #form-button-submit:focus {

@@ -6,6 +6,7 @@ import ThoughtsFormData from "../../libs/ThoughtsFormData";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 const ThoughtForm = ({ currentThought }) => {
   const [formStep, setFormStep] = useState(1);
@@ -23,6 +24,10 @@ const ThoughtForm = ({ currentThought }) => {
 
   const [input, setInput] = useState();
   const [formCompleted, setFormCompleted] = useState(false);
+
+  const currentProgress = Math.round(
+    (formStep / ThoughtsFormData.length) * 100
+  );
 
   useEffect(() => {
     if (formCompleted) {
@@ -107,9 +112,8 @@ const ThoughtForm = ({ currentThought }) => {
   return (
     <>
       {!formCompleted ? (
-        <Container fluid="md">
+        <Container fluid="md" className="mt-4">
           <Form onSubmit={handleSubmit}>
-            <p>{`Step ${formStep} of ${ThoughtsFormData.length}`}</p>
             {ThoughtsFormData[formStep - 1].type === "text" ? (
               <TextForm
                 questionText={ThoughtsFormData[formStep - 1].questionText}
@@ -125,7 +129,8 @@ const ThoughtForm = ({ currentThought }) => {
                 input={input}
               />
             )}
-
+            <p className="text-start mb-1">{`Step ${formStep} of ${ThoughtsFormData.length}`}</p>
+            <ProgressBar now={currentProgress} className="mb-5" />
             <div aria-label="Button group for navigating new thought form">
               {/* Hide the previous button if rendering the first form step */}
               {formStep !== 1 && (
