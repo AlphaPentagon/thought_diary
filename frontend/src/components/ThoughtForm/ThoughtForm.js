@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import TextForm from "./TextForm/TextForm";
 import NumberForm from "./NumberForm/NumberForm";
