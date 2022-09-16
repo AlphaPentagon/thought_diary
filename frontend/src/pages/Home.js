@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 
 const Home = () => {
   return (
-    <Container className="heroCard mt-5">
+    <Container className="heroCard">
       <Row>
         <Col className="d-flex justify-content-center mb-3">
           <img

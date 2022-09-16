@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
-const ThoughtForm = () => {
+const ThoughtForm = ({ currentThought }) => {
   const [formStep, setFormStep] = useState(1);
   const [formData, setFormData] = useState({
     situation: "",
@@ -20,30 +20,66 @@ const ThoughtForm = () => {
     balanced_thought: "",
     balanced_rating: 0,
   });
+
   const [input, setInput] = useState();
   const [formCompleted, setFormCompleted] = useState(false);
 
   useEffect(() => {
     if (formCompleted) {
-      const postNewThought = async () => {
-        const newThought = {
-          headers: {
-            "content-type": "application/json",
-          },
-          method: "POST",
-          body: JSON.stringify(formData),
+      if (currentThought) {
+        const updateThought = async () => {
+          const updatedThought = {
+            headers: {
+              "content-type": "application/json",
+            },
+            method: "PATCH",
+            body: JSON.stringify(formData),
+          };
+          let res = await fetch(
+            `${process.env.REACT_APP_API_URI}/${currentThought._id}`,
+            updatedThought
+          );
+          let data = await res.json();
+          return data;
         };
-        let res = await fetch(`${process.env.REACT_APP_API_URI}`, newThought);
-        let data = await res.json();
-        return data;
-      };
-      postNewThought();
+        updateThought();
+      } else {
+        const postNewThought = async () => {
+          const newThought = {
+            headers: {
+              "content-type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify(formData),
+          };
+          let res = await fetch(`${process.env.REACT_APP_API_URI}`, newThought);
+          let data = await res.json();
+          return data;
+        };
+        postNewThought();
+      }
     }
   }, [formCompleted]);
 
   useEffect(() => {
     setInput(formData[ThoughtsFormData[formStep - 1].title]);
   }, [formData]);
+
+  useEffect(() => {
+    if (currentThought) {
+      setFormData({
+        situation: currentThought.situation,
+        thought: currentThought.thought,
+        thought_rating: currentThought.thought_rating,
+        emotions: currentThought.emotions,
+        behaviours: currentThought.behaviours,
+        evidence_for: currentThought.evidence_for,
+        evidence_against: currentThought.evidence_against,
+        balanced_thought: currentThought.balanced_thought,
+        balanced_rating: currentThought.balanced_rating,
+      });
+    }
+  }, []);
 
   const nextStep = (e) => {
     e.preventDefault();
@@ -125,7 +161,7 @@ const ThoughtForm = () => {
                   id="form-button-submit"
                   className="shadow-none"
                 >
-                  Submit
+                  {currentThought ? "Update" : "Submit"}
                 </Button>
               )}
             </div>
@@ -133,7 +169,12 @@ const ThoughtForm = () => {
         </Container>
       ) : (
         <div>
-          <p>Thought has been logged!</p>
+          {currentThought ? (
+            <p>Thought has been updated!</p>
+          ) : (
+            <p>Thought has been logged!</p>
+          )}
+
           <p>
             Click <a href="/newThought">here</a> to log another thought, or
             click <a href="/diary">here</a> to view your diary

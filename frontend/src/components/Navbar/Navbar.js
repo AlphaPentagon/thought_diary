@@ -14,7 +14,7 @@ const Navbar = () => {
           <Nav.Link href="/diary">Thought Diary</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/newThought">Log a new thought</Nav.Link>
+          <Nav.Link href="/newThought">Log a Thought</Nav.Link>
         </Nav.Item>
       </Nav>
     </header>

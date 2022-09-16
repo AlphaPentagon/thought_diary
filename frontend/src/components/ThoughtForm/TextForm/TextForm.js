@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 const TextForm = ({ questionText, placeholderText, onChange, input }) => {
   return (
     <Form.Group
-      controlId="thoughtForm.ControlTextarea"
+      // controlId="thoughtForm.ControlTextarea"
       d-fluid="lg"
       className="mb-3 mx-auto"
     >

@@ -15,16 +15,22 @@
 
 // modal for each thought ✅
 // option to update and delete - buttons ✅
-// color scheme
+// color scheme ✅
 // title and favicon ✅
 // logo ✅
 // front page explanation and resources ✅
 
+# updateThought
+
+- update button takes you to new page with normal log a thought form rendered, but with current thought details already prefilled
+- context to grab the thought object - current thought
+-
+
 # stretch goals
 
-// deployment
-    // front end
-    // back end
+// deployment✅
+    // front end✅
+    // back end✅
 // log in / out functionality
 // log time and date
 // filter by date/time

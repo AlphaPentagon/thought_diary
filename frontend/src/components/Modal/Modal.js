@@ -1,9 +1,14 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
+import { useContext } from "react";
+import ThoughtContext from "../ThoughtContext.js";
+import { Link } from "react-router-dom";
 
 const ThoughtModal = ({ thought, handleDelete, thoughtIndex }) => {
   const [show, setShow] = useState(false);
+  const [currentThought, setCurrentThought] = useContext(ThoughtContext);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -16,6 +21,10 @@ const ThoughtModal = ({ thought, handleDelete, thoughtIndex }) => {
     } else {
       return;
     }
+  };
+
+  const handleUpdate = () => {
+    setCurrentThought(thought);
   };
 
   const date = thought.createdAt.split("").slice(0, 10).join("");
@@ -79,9 +88,11 @@ const ThoughtModal = ({ thought, handleDelete, thoughtIndex }) => {
           <Button variant="outline-secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="outline-info" onClick={handleClose}>
-            Update
-          </Button>
+          <Link to="/updateThought">
+            <Button variant="outline-info" onClick={handleUpdate}>
+              Update
+            </Button>
+          </Link>
           <Button variant="outline-danger" onClick={checkDelete}>
             DELETE
           </Button>

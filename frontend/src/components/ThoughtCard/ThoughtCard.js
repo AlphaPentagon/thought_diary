@@ -4,6 +4,7 @@ import ThoughtModal from "../../components/Modal/Modal.js";
 
 const ThoughtCard = ({ thought, index, handleDelete }) => {
   const [isHovering, setIsHovering] = useState(false);
+
   const date = thought.createdAt.split("").slice(0, 10).join("");
   const time = thought.createdAt.split("").slice(11, 16).join("");
 
