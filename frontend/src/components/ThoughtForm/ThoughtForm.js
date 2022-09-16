@@ -32,7 +32,7 @@ const ThoughtForm = () => {
           method: "POST",
           body: JSON.stringify(formData),
         };
-        let res = await fetch("/api/thoughts", newThought);
+        let res = await fetch(`${process.env.REACT_APP_API_URI}`, newThought);
         let data = await res.json();
         return data;
       };

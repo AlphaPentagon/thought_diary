@@ -8,7 +8,8 @@ const Diary = () => {
 
   useEffect(() => {
     const getAllThoughts = async () => {
-      const res = await fetch("/api/thoughts");
+      const res = await fetch(`${process.env.REACT_APP_API_URI}`);
+      console.log(process.env.REACT_APP_API_URI);
       const data = await res.json();
       setThoughts(data.payload);
     };
@@ -17,7 +18,7 @@ const Diary = () => {
 
   const handleDelete = async (thoughtId, index) => {
     setThoughts([...thoughts.slice(0, index), ...thoughts.slice(index + 1)]);
-    let res = await fetch(`/api/thoughts/${thoughtId}`, {
+    let res = await fetch(`${process.env.REACT_APP_API_URI}/${thoughtId}`, {
       header: {
         "content-type": "application/json",
       },
