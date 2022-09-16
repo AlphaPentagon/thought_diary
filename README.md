@@ -2,9 +2,13 @@
 
 A simple CBT thought diary app.
 
-The MVP will be that people can log their thoughts as a series of responses to questions and then access these from a dashboard. There will be a login and logout feature. The design will be nice and clean and clear.
+View the demo [here](https://thought-diary.netlify.app/)
 
-I plan to use the Mern stack for this project. I have not used MongoDB before so this is a good chance to learn something new. I am excited to practise my backend skills and implement custom authentication. I also plan to use a component library as well, something I have limited experience with.
+## Plan
+
+The MVP will be that people can log their thoughts as a series of responses to questions and then access these from a dashboard, with the option to update or delete each individual thought. The design will be clean and clear.
+
+I plan to use the Mern stack for this project. I have not used MongoDB before so this is a good chance to learn something new. I am excited to practise my backend skills and implement custom authentication. I also plan to use Boostrap for styling which I have not used previously.
 
 ## Progress Journal
 
@@ -34,3 +38,17 @@ I plan to use the Mern stack for this project. I have not used MongoDB before so
 - Added post request and submit button so that form data can be posted to database
 - Added delete request and button so that thought can be deleted from db, change is reflected on page
 - Manually tested functionality using app and Postman
+
+### 14/09/22
+
+- Created frontend pages and components
+- Styled using bootstrap
+
+### 15/09/22
+
+- Continued styling and creation of components and pages
+
+### 16/09/22
+
+- Deployed frontend to Netlify
+- Deployed backend to Render
