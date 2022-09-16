@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/row";
+import Row from "react-bootstrap/Row";
 import ThoughtCard from "../components/ThoughtCard/ThoughtCard.js";
 
 const Diary = () => {
