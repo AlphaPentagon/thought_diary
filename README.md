@@ -84,3 +84,7 @@ Strech goals would be to:
 
 - Deployed frontend to Netlify
 - Deployed backend to Render
+
+### 19/09/22
+
+- final MVP finishing touches added
