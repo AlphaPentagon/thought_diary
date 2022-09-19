@@ -46,7 +46,7 @@ const Diary = () => {
                 );
               })
             ) : (
-              <p>
+              <p className="text-center">
                 {" "}
                 No thoughts to display. <a href="/newThought">Get started</a>
               </p>

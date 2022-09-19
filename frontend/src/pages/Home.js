@@ -2,6 +2,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -30,7 +31,9 @@ const Home = () => {
       </Row>
       <Row>
         <Col className="d-flex justify-content-center">
-          <Button variant="outline-primary fw-bold">Get Started</Button>
+          <Link to="/newThought">
+            <Button variant="outline-primary fw-bold">Get Started</Button>
+          </Link>
         </Col>
       </Row>
     </Container>
