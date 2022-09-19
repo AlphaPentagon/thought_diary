@@ -53,6 +53,6 @@ I plan to use the Mern stack for this project. I have not used MongoDB before so
 - Deployed frontend to Netlify
 - Deployed backend to Render
 
-# 19/09/22
+### 19/09/22
 
 - final MVP finishing touches added
