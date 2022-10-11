@@ -88,3 +88,11 @@ Strech goals would be to:
 ### 19/09/22
 
 - final MVP finishing touches added
+
+<hr />
+
+## Updates:
+
+### 11/10/22
+
+- Added date and time picker, removed console errors regarding form input control (reference [here](https://bobbyhadz.com/blog/react-component-changing-uncontrolled-input) 
