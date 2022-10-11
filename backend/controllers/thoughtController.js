@@ -57,6 +57,8 @@ export const getThoughtById = async (req, res) => {
 // create a new thought
 export const createThought = async (req, res) => {
   const {
+    date,
+    time,
     situation,
     thought,
     thought_rating,
@@ -71,6 +73,8 @@ export const createThought = async (req, res) => {
   // add thought to database
   try {
     const newThought = await thoughtModel.create({
+      date,
+      time,
       situation,
       thought,
       thought_rating,

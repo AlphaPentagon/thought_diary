@@ -4,6 +4,14 @@ const Schema = mongoose.Schema;
 
 const thoughtSchema = new Schema(
   {
+    date: {
+      type: String,
+      required: true,
+    },
+    time: {
+      type: String,
+      required: true,
+    },
     situation: {
       type: String,
       required: true,
