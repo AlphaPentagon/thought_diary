@@ -9,7 +9,6 @@ const Diary = () => {
   useEffect(() => {
     const getAllThoughts = async () => {
       const res = await fetch(`${process.env.REACT_APP_API_URI}`);
-      console.log(process.env.REACT_APP_API_URI);
       const data = await res.json();
       setThoughts(data.payload);
     };

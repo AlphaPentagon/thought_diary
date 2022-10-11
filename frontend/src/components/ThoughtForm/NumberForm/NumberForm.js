@@ -19,7 +19,7 @@ const NumberForm = ({ questionText, onChange, input }) => {
             type="range"
             className="form-range"
             onChange={onChange}
-            value={input}
+            value={input || ""}
             style={{ border: "none" }}
           />
           <span>100%</span>

@@ -16,7 +16,7 @@ const DateForm = ({ questionText, onChange, input }) => {
         className="opacity-75"
         type="date"
         onChange={onChange}
-        value={input}
+        value={input || ""}
         style={{
           width: "min(16rem, 100%)",
           margin: "7rem auto 5rem auto",

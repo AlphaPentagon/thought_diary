@@ -116,7 +116,6 @@ const ThoughtForm = ({ currentThought }) => {
   };
 
   const handleFormType = (type) => {
-    console.log(formData);
     switch (type) {
       case "text":
         return (

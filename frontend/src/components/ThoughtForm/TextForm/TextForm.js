@@ -16,7 +16,7 @@ const TextForm = ({ questionText, placeholderText, onChange, input }) => {
         style={{ height: "16rem" }}
         as="textarea"
         onChange={onChange}
-        value={input}
+        value={input || ""}
         placeholder={placeholderText}
       />
     </Form.Group>
