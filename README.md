@@ -95,4 +95,4 @@ Strech goals would be to:
 
 ### 11/10/22
 
-- Added date and time picker, removed console errors regarding form input control (reference [here](https://bobbyhadz.com/blog/react-component-changing-uncontrolled-input) 
+- Added date and time picker, removed console errors regarding form input control (reference [here](https://bobbyhadz.com/blog/react-component-changing-uncontrolled-input)) 
