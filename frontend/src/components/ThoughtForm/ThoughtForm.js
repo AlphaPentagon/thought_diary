@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import TextForm from "./TextForm/TextForm";
 import NumberForm from "./NumberForm/NumberForm";
+import DateForm from "./DateForm/DateForm";
+import TimeForm from "./TimeForm/TimeForm";
 import ThoughtsFormData from "../../libs/ThoughtsFormData";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -11,6 +13,8 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 const ThoughtForm = ({ currentThought }) => {
   const [formStep, setFormStep] = useState(1);
   const [formData, setFormData] = useState({
+    date: "",
+    time: "",
     situation: "",
     thought: "",
     thought_rating: 0,
@@ -73,6 +77,8 @@ const ThoughtForm = ({ currentThought }) => {
   useEffect(() => {
     if (currentThought) {
       setFormData({
+        date: currentThought.date,
+        time: currentThought.time,
         situation: currentThought.situation,
         thought: currentThought.thought,
         thought_rating: currentThought.thought_rating,
@@ -109,26 +115,55 @@ const ThoughtForm = ({ currentThought }) => {
     setFormData({ ...formData, [ThoughtsFormData[formStep - 1].title]: input });
   };
 
+  const handleFormType = (type) => {
+    switch (type) {
+      case "text":
+        return (
+          <TextForm
+            questionText={ThoughtsFormData[formStep - 1].questionText}
+            placeholderText={ThoughtsFormData[formStep - 1].placeholderText}
+            onChange={onChange}
+            input={input}
+          />
+        );
+      case "number":
+        return (
+          <NumberForm
+            questionText={ThoughtsFormData[formStep - 1].questionText}
+            placeholderText={ThoughtsFormData[formStep - 1].placeholderText}
+            onChange={onChange}
+            input={input}
+          />
+        );
+      case "date":
+        return (
+          <DateForm
+            questionText={ThoughtsFormData[formStep - 1].questionText}
+            placeholderText={ThoughtsFormData[formStep - 1].placeholderText}
+            onChange={onChange}
+            input={input}
+          />
+        );
+      case "time":
+        return (
+          <TimeForm
+            questionText={ThoughtsFormData[formStep - 1].questionText}
+            placeholderText={ThoughtsFormData[formStep - 1].placeholderText}
+            onChange={onChange}
+            input={input}
+          />
+        );
+      default:
+        return <p>Incorrect form type</p>;
+    }
+  };
+
   return (
     <>
       {!formCompleted ? (
         <Container fluid="md" className="mt-4">
           <Form onSubmit={handleSubmit}>
-            {ThoughtsFormData[formStep - 1].type === "text" ? (
-              <TextForm
-                questionText={ThoughtsFormData[formStep - 1].questionText}
-                placeholderText={ThoughtsFormData[formStep - 1].placeholderText}
-                onChange={onChange}
-                input={input}
-              />
-            ) : (
-              <NumberForm
-                questionText={ThoughtsFormData[formStep - 1].questionText}
-                placeholderText={ThoughtsFormData[formStep - 1].placeholderText}
-                onChange={onChange}
-                input={input}
-              />
-            )}
+            {handleFormType(ThoughtsFormData[formStep - 1].type)}
             <p className="text-start mb-1">{`Step ${formStep} of ${ThoughtsFormData.length}`}</p>
             <ProgressBar now={currentProgress} className="mb-5" />
             <div aria-label="Button group for navigating new thought form">

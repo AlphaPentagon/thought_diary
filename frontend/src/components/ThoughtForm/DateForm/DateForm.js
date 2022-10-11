@@ -1,9 +1,9 @@
 import Form from "react-bootstrap/Form";
 
-const TextForm = ({ questionText, placeholderText, onChange, input }) => {
+const DateForm = ({ questionText, onChange, input }) => {
   return (
     <Form.Group
-      // controlId="thoughtForm.ControlTextarea"
+      //   controlId="thoughtForm.ControlDate"
       d-fluid="lg"
       className="mb-3 mx-auto"
     >
@@ -11,16 +11,20 @@ const TextForm = ({ questionText, placeholderText, onChange, input }) => {
         {questionText}
       </Form.Label>
       <Form.Control
+        size="lg"
         id="forms-bg-color"
         className="opacity-75"
-        style={{ height: "16rem" }}
-        as="textarea"
+        type="date"
         onChange={onChange}
         value={input || ""}
-        placeholder={placeholderText}
+        style={{
+          width: "min(16rem, 100%)",
+          margin: "7rem auto 5rem auto",
+          height: "6rem",
+        }}
       />
     </Form.Group>
   );
 };
 
-export default TextForm;
+export default DateForm;
