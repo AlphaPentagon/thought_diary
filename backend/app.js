@@ -1,5 +1,6 @@
 import express from "express";
 import thoughtsRouter from "./routes/thoughts.js";
+import usersRouter from "./routes/users.js";
 import mongoose from "mongoose";
 import cors from "cors";
 
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/thoughts", thoughtsRouter);
+app.use("/api/users", usersRouter);
 
 // connect to Mongo DB
 mongoose
